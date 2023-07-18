@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+body{
+    background-image: url(https://cdn.pixabay.com/photo/2012/04/15/21/27/colombia-35364_1280.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+.principal{
+    background-color: rgba(20, 20, 20, 0.507);
+}
+.switch{
+    padding: 10px;
+    margin: 5px;
+    font-size: 15px;
+}
+.titulo{
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.605);
+    color: white;
+    font-family: 'Dancing Script';
+    font-size: 60px;
+}
+img{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.tabla{
+    background-color: rgb(242, 242, 245);
+    color: rgb(7, 7, 7);
+}
+#info{
+    color: white;
+    background-color: rgb(28, 79, 128);
+
+    margin-left: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    width:30%;
+}

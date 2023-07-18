@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Gestor Ciudades</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <style id="customTheme" class="letrica"></style>
+
+  </head>
+
+  <body>
+    <div class="div principal">
+      <div class="row">
+        <div class="col-1">
+          <button onclick="cambiarTema('light')" type="button"
+          class="btn btn-light switch">Tema clarito</button>
+          <button onclick="cambiarTema('dark')" type="button"
+          class="btn btn-dark switch">Tema oscuro</button>
+          <button onclick="shiftTema()" type="button"
+          class="btn btn-secondary switch">Intercambiar</button>
+        </div>
+        <div class="col-10">
+          <h1 class="titulo">Gestor de Departamentos</h1>
+        </div>
+        <div class="col-1">
+            <button onclick="tamaño('media')" type="button"
+            class="btn btn-light switch">Mediana</button>
+            <button onclick="tamaño('big')" type="button"
+            class="btn btn-dark switch">Grande</button>
+          </div>
+      </div>
+      <div class="container depContainer">
+        <div class="row">
+          <div class="col-12 bg-white p-4 rounded mt-5">
+            <form class="col-12" id="formDepartamentos">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Nombre del Departamento</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomDepartamento"
+                  name="nomDepartamento"
+                />
+              </div>
+              <input
+                type="submit"
+                class="btn btn-primary"
+                data-accion="Agregar"
+                value="Agregar"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col p-2">
+            <table class="table border-bottom mt-4 tabla" id="tablaDepartamento">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Nombre del Departamento</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Update</th>
+                </tr>
+              </thead>
+              <tbody class="cuerpoDepartamento" id="cuerpoDepartamento"></tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="modalModificar"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Actualiza los datos
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="col-12" id="formUpdateDep">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      >Nombre del Departamento</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nomDepartamento"
+                      name="nomDepartamento"
+                    />
+                  </div>
+                  <input
+                    type="submit"
+                    class="btn btn-primary"
+                    data-accion="update"
+                    value="Update"
+                  />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- //                             -------------------------CIUDADES-------------------------------                                                     -->
+
+      <div class="row">
+        <div class="col-12">
+          <h1 class="titulo">Gestor de Ciudades</h1>
+        </div>
+      </div>
+      <div class="container ciudadContenedor">
+        <div class="row">
+          <div class="col-12 bg-white p-4 rounded mt-5">
+            <form class="col-12" id="formCiudades">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Nombre de la ciudad</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nomCiudad"
+                  name="nomCiudad"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="idDep" class="form-label">Departamento: </label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="idDep"
+                >
+                  <option selected>Elige el Departamento</option>
+                </select>
+              </div>
+              <input
+                type="submit"
+                class="btn btn-primary"
+                data-accion="AgregarCiudad"
+                value="Agregar Ciudad"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col p-2">
+            <table class="table border-bottom mt-4 tabla" id="tablaCiudad">
+              <thead>
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col">Ciudad</th>
+                  <th scope="col">Imagen</th>
+                  <th scope="col">Departamento elegido</th>
+                  <th scope="col">Latitud</th>
+                  <th scope="col">Longitud</th>
+                  <th scope="col">Delete</th>
+                  <th scope="col">Update</th>
+                </tr>
+              </thead>
+              <tbody class="cuerpoCiudad" id="cuerpoCiudad"></tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="modalModificar2"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel2">
+                  Actualizar informacion
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form class="col-12" id="formUpdateCiudad">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      >Nombre de la Ciudad</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nomCiudadAct"
+                      name="nomCiudadAct"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="cateRutas" class="form-label"
+                      >Departamento:
+                    </label>
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="cateDepModal"
+                    >
+                      <option selected>Elige el Departamento</option>
+                    </select>
+                  </div>
+                  <input
+                    type="submit"
+                    class="btn btn-primary"
+                    data-accion="updateCiudad"
+                    value="Update"
+                  />
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <input type="text" placeholder="ciudad" id="buscador" class="p-1 m-5">
+      <button class="btn btn-primary" id="botonBuscar" class="p-1 m-5">Buscar</button>
+      <div id="info">
+
+      </div>
+    </div>
+
+    <script type="module" src="./JS/mainCiu.js"></script>
+    <script type="module" src="./JS/mainDep.js"></script>
+    <script type="module" src="./JS/appDep.js"></script>
+    <script type="module" src="./JS/appCiu.js"></script>
+    <script src="./JS/switch.js" ></script>
+    <script src="./API/apiExterna.js"></script>
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

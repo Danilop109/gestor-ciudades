@@ -1,0 +1,62 @@
+{
+  "departamentos": [
+    {
+      "id": 1,
+      "nomDepartamento": "Santander"
+    },
+    {
+      "id": 2,
+      "nomDepartamento": "Cundinamarca"
+    },
+    {
+      "nomDepartamento": "Norte de Santander",
+      "id": 3
+    },
+    {
+      "nomDepartamento": "Norte de Santander",
+      "id": 4
+    }
+  ],
+  "ciudades": [
+    {
+      "id": 1,
+      "nomCiudad": "Bucaramanga",
+      "departamentoId": 1,
+      "imagen": "https://upload.wikimedia.org/wikipedia/commons/3/35/Bucaramanga_3_Sder_Col_enr_2022.jpg",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    },
+    {
+      "id": 2,
+      "nomCiudad": "Barrancabermeja",
+      "departamentoId": 1,
+      "imagen": "https://www.barrancabermeja.gov.co/info/barrancabermeja_bco/media/pubInt/thumbs/thpubInt_700X400_13.webp",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    },
+    {
+      "id": 3,
+      "nomCiudad": "Bogota",
+      "departamentoId": 2,
+      "imagen": "https://www.ciencuadras.com/blog/wp-content/uploads/2022/06/Destacado_Que-tanto-sabes-de-tu-barrio.jpg",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    },
+    {
+      "id": 4,
+      "nomCiudad": "Cajica",
+      "departamentoId": 2,
+      "imagen": "https://www.diccionariodecolombia.expert/wp-content/uploads/2020/04/cajicaf.png",
+      "coordenadas": {
+        "lat": 4,
+        "lon": 72
+      }
+    }
+  ]
+}
